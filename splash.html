@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loading Sniffer</title>
+    <link href="https://fonts.googleapis.com/css?family=Boogaloo" rel="stylesheet">
+    <script src="lib/TweenMax.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.js?r=12"></script>
+    <script src="node_modules/gsap/TweenMax.js"></script>
+  </head>
+
+  <body>
+
+<style>
+  body {
+    background-color:#F1F4E4;
+    overflow: hidden;
+    font-family: 'Boogaloo', cursive !important;
+  }
+
+  body,
+  html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .container{
+    position:absolute;
+    width:600px
+  }
+
+  h3 {
+    letter-spacing: 0.3em;
+  }
+
+  svg{
+    width:100%;
+    visibility:hidden;
+  }
+
+
+  .loader--style3 {
+    position: relative;
+    height: 100%;
+    margin: auto;
+    top: 483px;
+    transform: scale(2);
+  }
+
+  .loading-sign {
+    position: absolute;
+    margin: auto;
+    color: #FFF;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    top: 28%;
+  }
+
+</style>
+
+
+
+  <div class="container">
+
+    <h3 class="loading-sign">LOADING</h3>
+
+    <div class="loader loader--style3" title="2">
+      <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+  <path fill="#1A99F3" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+    <animateTransform attributeType="xml"
+      attributeName="transform"
+      type="rotate"
+      from="0 25 25"
+      to="360 25 25"
+      dur="0.6s"
+      repeatCount="indefinite"/>
+    </path>
+  </svg>
+    </div>
+
+
+    <svg class="dogSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+      <title>doghead</title>
+      <defs>
+
+        <clipPath id="mainMask">
+          <rect id="bg" width="600" height="600" rx="56" ry="56" fill="#5A626E"/>
+
+        </clipPath>
+      </defs>
+      <use xlink:href="#bg"/>
+      <g id="dogGroup">
+        <rect id="earL" x="207" y="220" width="31" height="187" rx="15" ry="15" fill="#CC6A49"/>
+        <rect id="earR" x="361" y="220.94" width="31" height="187" rx="15.7" ry="15.7" fill="#CC6A49"/>
+        <ellipse id="head" cx="301" cy="285" rx="86" ry="94" fill="#1A99F3"/>
+        <rect id="earLTOP" x="207" y="220" width="31" height="187" rx="15" ry="15" fill="#292E40"/>
+        <rect id="earRTOP" x="361" y="220.94" width="31" height="187" rx="15.7" ry="15.7" fill="#292E40"/>
+        <rect id="snout" x="239" y="294" width="121" height="84.98" rx="42" ry="42" fill="#FFF"/>
+        <g id="nose" >
+          <rect x="276" y="325" width="46" height="23" rx="11" ry="11" fill="#292E40"/>
+          <path id="noseShine" fill="none" stroke="#AAABAF" stroke-width="4" stroke-linecap="round" d="
+    M282.1,337.7L282.1,337.7c0-4.2,3.4-7.6,7.6-7.6h20.4c4.2,0,7.6,3.4,7.6,7.6l0,0"/>
+        </g>
+        <!-- <rect id="noseShine" x="306" y="331" width="6" height="6" rx="3" ry="3" fill="#ededed"/> -->
+        <g id="browGroup" stroke="#292E40" stroke-linecap="round" >
+          <line id="browL" x1="250" y1="253" x2="290" y2="253" fill="none"  stroke-miterlimit="10" stroke-width="7"/>
+          <line id="browR" x1="309" y1="253" x2="349" y2="253" fill="none" stroke-miterlimit="10" stroke-width="7"/>
+        </g>
+        <g id="eyeGroup" fill="#292E40">
+          <g id="eyeSpinL">
+            <ellipse id="eyeL" class="eye" cx="270" cy="285" rx="7" ry="7" />
+          </g>
+          <g id="eyeSpinR">
+            <ellipse id="eyeR" class="eye" cx="329" cy="285" rx="7" ry="7" />
+          </g>
+        </g>
+
+      </g>
+      <!--<g clip-path="url(#mainMask)">-->
+
+        <!--<path id="bone" stroke="#AAABAD" stroke-width="4" fill="#F8FAF1" d="M108,28c7.7,0,14-6.3,14-14s-6.3-14-14-14S94,6.3,94,14H28c0-7.7-6.3-14-14-14S0,6.3,0,14s6.3,14,14,14-->
+  <!--C6.3,28,0,34.3,0,42s6.3,14,14,14s14-6.3,14-14h66c0,7.7,6.3,14,14,14s14-6.3,14-14S115.7,28,108,28z"/>-->
+      <!--</g>-->
+    </svg>
+
+
+  </div>
+    <script>
+      var xmlns = "http://www.w3.org/2000/svg",
+        xlinkns = "http://www.w3.org/1999/xlink",
+        select = function(s) {
+          return document.querySelector(s);
+        },
+        selectAll = function(s) {
+          return document.querySelectorAll(s);
+        },
+        container = select('.container'),
+        dogSVG = select('.dogSVG'),
+        bone = select('#bone'),
+        browL = select('#browL'),
+        browR = select('#browR'),
+        eyeSpinL = select('#eyeSpinL'),
+        eyeSpinR = select('#eyeSpinR'),
+        stageWidth =  600,
+        stageHeight = stageWidth,
+        mousePos = {x:0,y:0}
+
+      TweenMax.set(container, {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        xPercent: -50,
+        yPercent: -50
+      })
+      TweenMax.set('svg', {
+        visibility: 'visible'
+      })
+      TweenMax.set([nose, bone, '.eye'], {
+        transformOrigin:'50% 50%'
+      })
+      TweenMax.set(browL, {
+        transformOrigin:'0% 50%'
+      })
+      TweenMax.set(browR, {
+        transformOrigin:'100% 150%'
+      })
+      TweenMax.set([eyeSpinL,eyeSpinR], {
+        transformOrigin:'65% 50%'
+      })
+
+      var eyeMaxY = 1;
+      var browMaxY = 2;
+      var browMaxRot = 0;
+      var snoutMinY = 2;
+      var noseMaxY = 12;
+
+      dogSVG.onmousemove = function(e){
+
+        //console.log(((stageWidth/2) - e.offsetX) * -1)
+        mousePos.x = ((stageWidth/2) - e.offsetX) * -1;
+        mousePos.y = ((stageHeight/2) - e.offsetY) * -1;
+
+        TweenMax.to('#eyeGroup',1,{
+          x:mousePos.x/20,
+          y:((mousePos.y/12) > eyeMaxY) ? eyeMaxY : mousePos.y/12
+        })
+
+        TweenMax.to(browL,1,{
+          rotation:((mousePos.y/25) > browMaxRot) ? browMaxRot : mousePos.y/25
+        })
+        TweenMax.to(browR,1,{
+          rotation:-((mousePos.y/15) > browMaxRot) ? -browMaxRot : -mousePos.y/15
+        })
+        TweenMax.to('#browGroup',1,{
+          x:mousePos.x/40,
+          y:((mousePos.y/25) > browMaxY) ? browMaxY : mousePos.y/25
+        })
+
+        TweenMax.to('#snout',1,{
+          x:mousePos.x/30,
+          y:((mousePos.y/60) < snoutMinY) ? snoutMinY : mousePos.y/60
+        })
+        TweenMax.to('#nose',1,{
+          x:mousePos.x/8,
+          y:((mousePos.y/10) > noseMaxY) ? noseMaxY : mousePos.y/10
+        })
+
+        TweenMax.to(bone, 1, {
+          x:e.offsetX - (bone.getBBox().width/2),
+          y:e.offsetY- (bone.getBBox().height/2),
+          ease:Elastic.easeOut.config(0.7, 0.8)
+        })
+
+        TweenMax.to('#earL',1, {
+          x:-(mousePos.x/50),
+          y:-(mousePos.y/50)
+        })
+        TweenMax.to('#earR',1, {
+          x:-(mousePos.x/50),
+          y:-(mousePos.y/50)
+        })
+        TweenMax.to('#dogGroup',1, {
+          x:(mousePos.x/23),
+          y:(mousePos.y/23)
+        })
+
+        TweenMax.set(noseShineTL,{
+          time:noseShineTL.duration() - ((e.offsetX/stageWidth) * noseShineTL.duration())
+        })
+
+
+
+
+      }
+
+
+      function blink(){
+
+        TweenMax.to('.eye', 0.1,{
+          attr:{
+            ry:0
+          },
+          repeat:1,
+          yoyo:true,
+          onComplete:blink,
+          delay:Math.random() * 10
+        })
+
+      }
+
+      function sniff(){
+
+        TweenMax.to('#nose', 0.1,{
+          scaleX:1.1,
+          repeat:1,
+          yoyo:true,
+          onComplete:sniff,
+          delay:Math.random()
+        })
+      }
+
+      blink();
+      sniff();
+      dogSVG.onmousemove({offsetX:300, offsetY:60 })
+    </script>
+  </body>
+</html>
