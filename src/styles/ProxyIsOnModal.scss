@@ -1,0 +1,20 @@
+@import "variables.scss";
+
+.proxy-is-on-modal__div{
+ background-color: $mockitup-segment-content-background-color !important;
+ text-align: center !important;
+ font-size: 1.5em !important;
+}
+
+.proxy-is-on-modal-first__div {
+ color: $mockitup-segment-title-text-color;
+}
+
+.proxy-is-on-modal-second__div {
+ color: $mockitup-segment-title-text-color;
+}
+
+.proxy-is-on-modal-third__div {
+ color: $mockitup-blue-color;
+}
+

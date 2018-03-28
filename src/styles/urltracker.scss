@@ -1,0 +1,35 @@
+@import "variables.scss";
+
+.urltracker__div{
+  color: $mockitup-white-color;
+  margin: auto;
+  width: 100%;
+  max-height: 18.5em;
+  overflow-y: auto;
+  text-align: left;
+  .request-method-label {
+    color: $mockitup-light-grey;
+    border: 1px solid $mockitup-light-grey;
+    background: transparent;
+    padding: 0.3em 0.6em;
+    position: relative;
+    font-size: 0.8em;
+    margin-right: 1em;
+  }
+  .request-content-type__span {
+    font-size: 10px;
+    color: $mockitup-sub-header-grey-color;
+  }
+  .urltracker__h2 {
+    text-align: center;
+    color: $mockitup-white-color;
+  }
+}
+
+.url-tracker-request-item__div:first-child {
+  border-top: none !important;
+}
+
+.url-tracker-request-item__div {
+  border-top: 1px solid $mockitup-segment-hr-color !important;
+}

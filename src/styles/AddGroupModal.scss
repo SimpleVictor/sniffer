@@ -1,0 +1,17 @@
+@import "variables.scss";
+
+.add-group-modal-header__div {
+  background-color: $mockitup-segment-title-background-color !important;
+  color: #FFF !important;
+  text-align: center !important;
+}
+
+.add-group-modal-content__div {
+  background-color: $mockitup-segment-content-background-color !important;
+  text-align: center !important;
+}
+
+.add-group-modal-content__button {
+  background-color: $mockitup-blue-color !important;
+  color: $white !important;
+}

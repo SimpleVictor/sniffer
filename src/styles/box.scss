@@ -1,0 +1,157 @@
+@import "variables.scss";
+
+/* TODO remove all !importants. There was some issues with external css taking more priority */
+
+.box-title__div {
+  p {
+    display: -webkit-inline-flex;
+  }
+  padding: 0.5em 1.2em !important;
+  background-color: $mockitup-segment-title-background-color !important;
+  color: $mockitup-white-color !important;
+}
+
+.box-content__div {
+  background-color: $mockitup-segment-content-background-color !important;
+  color: $mockitup-white-color !important;
+}
+
+.box-content__div--proxy {
+  padding-bottom: 0.3em !important;
+}
+
+.box-content__div--proxy:hover {}
+
+.box-content__p {
+  font-size: 4em;
+}
+
+.box-content__div--request {
+  padding-bottom: 0.5em !important;
+}
+
+.box-content__div--intercepted {
+  padding-bottom: 0.5em !important;
+}
+
+.box-content__div--padding {
+  padding-top: 2px !important;
+}
+
+.filter-link__div:first-child {
+  border-left: none !important;
+}
+
+.filter-link__div {
+  border-left: 1px solid $mockitup-segment-hr-color !important;
+}
+
+.filter-link-content__anchor {
+  color: $mockitup-sub-header-grey-color !important;
+}
+
+.filter-link-content__anchor--active {
+  color: $mockitup-blue-color !important;
+}
+
+.group-selection-title__div {
+
+  border-top: 1px solid $mockitup-segment-title-border-bottom-color !important;
+  color: $mockitup-sub-header-grey-color !important
+}
+
+.group-selection-box__div {
+  background-color: $mockitup-segment-title-background-color !important;
+  border: 1px solid $mockitup-segment-title-text-color !important;
+}
+
+.group-selection-box__button--green {
+  color: $mockitup-green-color !important;
+}
+
+.group-selection-box__button--red{
+  color: $mockitup-red-color !important;
+}
+
+.recorded-request-url__div {
+  width: 90%;
+  word-wrap: break-word;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.recorded-request-url__div--blue {
+  color: $mockitup-blue-color !important;
+}
+
+.recorded-request-url__div--green {
+  color: $mockitup-green-color !important;
+}
+
+.request-counter__p {
+  color: $mockitup-blue-color !important;
+}
+
+.intercepted-counter__p {
+  color: $mockitup-green-color !important;
+}
+
+.url-tracker-add__span {
+  line-height: 2.5em;
+  color: $mockitup-green-color !important;
+  cursor: pointer;
+}
+
+.group-selection-delete-group__anchor {
+  cursor: pointer;
+  color: $mockitup-red-color;
+  font-size: 0.7em;
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+}
+
+.group-selection-current-group__div {
+  top: 1.5em;
+  position: relative;
+  text-align: left;
+  margin-top: 0.5em;
+  font-size: 0.8em;
+}
+
+.group-selection-current-group-dynamic-text__span {
+  color: $mockitup-blue-color;
+}
+
+.group-selection-current-group-text__span {
+  color: $mockitup-segment-title-text-color;
+}
+
+.group-selection-box-current-group__anchor {
+  display: block;
+}
+
+.group-selection-no-data__h3 {
+  font-size: 1em;
+  letter-spacing: 0;
+  color: #7F8697;
+  text-align: center;
+  position: relative;
+  bottom: 1em;
+}
+
+.group-selection-add-group__a {
+  color: #7F8697;
+  font-size: 200em;
+  letter-spacing: 0;
+}
+
+#groupDropDownButton {
+  background: transparent !important;
+  border-bottom: 1px solid $mockitup-segment-title-text-color !important;
+  padding-bottom: 2.3em !important;
+  color: $mockitup-blue-color !important;
+  letter-spacing: 0.1em !important;
+  padding-top: 0 !important;
+  margin-top: 1em !important;
+}

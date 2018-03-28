@@ -1,0 +1,55 @@
+@import "variables.scss";
+
+.ui.divided.list > .item:first-child {
+  border-top: none !important;
+}
+
+.item.group-selection-box-item__div {
+  border-top: 1px solid #474C5E !important;
+}
+
+.item.group-selection-box-item__div:hover {
+  cursor: pointer;
+  background-color: #4A5162;
+  //background-color: rgba(0, 0, 0, 0.5);
+}
+
+.group-selection-box-url__span {
+  position: relative;
+  left: 0.5em;
+  bottom: 0.5em;
+}
+
+.group-selection-right-angle__i {
+  color: #1A99F3 !important;
+}
+
+.group-selector-add__div {
+  top: 0.5em;
+  left: 1em;
+  position: absolute;
+}
+
+.group-selector-add-group__a {
+  cursor: pointer;
+  color: $mockitup-segment-title-text-color;
+  float: left;
+  font-size: 0.7em;
+}
+
+.group-selection-box-url-name__div {
+  word-break: break-all;
+  color: $mockitup-sub-header-grey-color;
+  text-align: left;
+}
+
+.group-selection-box-delete__span {
+  top: 0.4em;
+  cursor: pointer;
+  color: $mockitup-red-color;
+  position: relative;
+}
+
+.group-selection-box-action-buttons__div {
+
+}

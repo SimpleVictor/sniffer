@@ -1,0 +1,32 @@
+.accordion {
+  margin-top: 20px !important;
+  margin: auto;
+  text-align: left;
+  color: #CCC;
+  width: 1000px !important;
+  .transition {
+    word-wrap: break-word;
+  }
+
+  div.activated {
+
+    div.title {
+      background: 0 0 !important;
+      color: rgba(0,0,0,.95) !important;
+    }
+
+    div.content {
+      display: block !important;
+    }
+
+    pre.transition {
+      display: block!important;
+      visibility: visible!important;
+    }
+  }
+
+  #menu-button-group {
+    width: 100% !important;
+  }
+
+}

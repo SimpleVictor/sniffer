@@ -1,0 +1,108 @@
+@import "variables.scss";
+
+.string-value {
+  color: $mockitup-blue-color !important;
+}
+
+#json-editor-modal {
+  margin: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100%;
+  max-width: 100%;
+  word-break: break-all;
+  height: 100% !important;
+}
+
+.react-json-view {
+  font-size: 1.3em !important;
+  background-color: transparent !important;
+  margin-top: 3em !important;
+}
+
+.json-editor-modal__hr {
+  border-top-color: $mockitup-segment-hr-color !important;
+  border-top-width: 0.2em !important;
+}
+
+.json-edit-modal-paste__button {
+  float: right !important;
+}
+
+.json-editor-modal-url__input {
+  margin-bottom: 2em !important;
+}
+
+.json-editor-delete__button {
+  float: right !important;
+  width: 30% !important;
+}
+
+.json-editor-save__button {
+  float: left !important;
+  width: 30% !important;
+}
+
+.json-editor-modal-header-title__div {
+  font-size: 3em;
+  color: $white;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+.json-editor-modal-header__div {
+  padding-bottom: 1em;
+}
+
+.json-editor-modal__table {
+  width: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%);
+}
+
+.json-editor-modal__tr {
+  width: 75%
+}
+
+.json-editor-modal__td {
+  border: 0 !important;
+  text-align: center;
+  border-bottom: 0 !important;
+  &--key {
+    text-align: right;
+  }
+
+  &--value {
+    text-align: left;
+  }
+}
+
+.json-editor-header__input {
+  width: 100% !important;
+  border: 0 !important;
+  position: relative !important;
+  background: transparent !important;
+  border-bottom: 0.15em solid #7F8697 !important;
+  color: #1A99F3 !important;
+  letter-spacing: 0.1em !important;
+  padding-top: 0 !important;
+  text-align: center !important;
+}
+
+.json-editor-header-trash__icon {
+  cursor: pointer;
+  color: $mockitup-red-color !important;
+  &:hover {
+    color: $mockitup-blue-color !important;
+  }
+}
+
+.json-editor-header-add__icon {
+  cursor: pointer;
+  color: $mockitup-green-color !important;
+  &:hover {
+    color: $mockitup-blue-color !important;
+  }
+}

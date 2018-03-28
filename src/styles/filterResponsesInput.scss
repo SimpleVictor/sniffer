@@ -1,0 +1,11 @@
+@import "variables.scss";
+.filter-responses-input__div {
+  margin-bottom: 2em;
+}
+
+.filter-responses-input__input {
+  text-align: center !important;
+  color: $mockitup-green-color !important;
+  border: 1px solid $mockitup-blue-color !important;
+  background-color: transparent !important;
+}
