@@ -42,4 +42,4 @@ The application will **ONLY** sniff requests/responses only on that **new chrome
 [React.js](https://reactjs.org/)|[Redux](https://redux.js.org/)|[Electron](https://electronjs.org/)|[Node.js](https://nodejs.org)|[Socket.IO](https://socket.io/)|[mitmproxy](https://mitmproxy.org/)|
 ------------- | ------------- | -------------| ------------- | ------------- | ------------- |
 
-![Alt text](./images/sniffer.png?raw=true "SnifferPic")
+![Alt text](./images/sniffer-full-screen.png?raw=true "SnifferPic")
