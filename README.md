@@ -5,8 +5,7 @@
 ## Prerequisites
 1. Go inside of the main directory in you terminal
 2. `sh ./setup.sh` (Checks to see if you have not already installed brew, python(Version 3), mitmproxy, and websocket)
-3. `yarn config set "strict-ssl" false`
-4. `yarn` (install node packages)
+3. `yarn`
 
 ## Start the desktop application
 
