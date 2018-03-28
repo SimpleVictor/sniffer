@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('server:server');
+var http = require('http');
+const kill = require('kill-port');
+const portToKill = [2000, 5065, 5050, 3000];
+const promiseReference = {resolve: '', reject: ''};
+const myPromise = new Promise((resolve, reject) => {
+    promiseReference.resolve = resolve;
+    promiseReference.reject = reject;
+});
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort('2000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+var io = app.io
+io.attach( server );
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+
+(async () => {
+    for(let idx in portToKill) {
+        try {
+          await kill(portToKill[idx]);
+          console.log(`Killed Port: ${portToKill[idx]}`);
+        } catch(err) {
+          console.log(`Failed to kill Port: ${portToKill[idx]}`);
+          console.log(err);
+        }
+    }
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', () => onListening());
+})();
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+  promiseReference.reject();
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+  promiseReference.resolve();
+}
+
+
+module.exports = myPromise;
