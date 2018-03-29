@@ -128,11 +128,11 @@ class ImageModal extends Component {
   }
 
   private addNewHeaderValues = () => {
-    const key = (document as any).getElementById('new-header-key').value;
-    const value = (document as any).getElementById('new-header-value').value;
+    const key = (document as any).getElementById('image-modal-header-key').value;
+    const value = (document as any).getElementById('image-modal-value-key').value;
     if(key && value) {
-      (document as any).getElementById('new-header-key').value = '';
-      (document as any).getElementById('new-header-value').value = '';
+      (document as any).getElementById('image-modal-header-key').value = '';
+      (document as any).getElementById('image-modal-value-key').value = '';
       this.currentResponse.headers.push({
         key,
         value
@@ -150,10 +150,10 @@ class ImageModal extends Component {
         <tbody>
         <tr className='json-editor-modal__tr'>
           <td className='json-editor-modal__td json-editor-modal__td--key'>
-            <input id='new-header-key' className='json-editor-header__input' type='text'/>
+            <input id='image-modal-header-key' className='json-editor-header__input' type='text'/>
           </td>
           <td className='json-editor-modal__td json-editor-modal__td--value'>
-            <input id='new-header-value' className='json-editor-header__input' type='text'/>
+            <input id='image-modal-value-key' className='json-editor-header__input' type='text'/>
           </td>
           <td className='json-editor-modal__td' onClick={() => this.addNewHeaderValues()}>
             <i className='fa fa-plus fa-2x json-editor-header-add__icon'/>
