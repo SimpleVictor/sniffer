@@ -4,6 +4,8 @@ export const CSSConstant = {
   addGroupModalInput: 'add-group-modal__input',
   addGroupModalContentDiv: 'add-group-modal-content__div',
 
+  globalHeaderModalID: 'globalHeaderModal',
+
   groupSelectorAddSectionDiv: 'group-selector-add__div',
   groupSelectorAddSectionAnchor: 'group-selector-add-group__a',
 

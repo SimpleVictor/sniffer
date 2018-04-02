@@ -1,0 +1,14 @@
+@import "variables.scss";
+
+.global-header-component__div {
+  top: 1.5em;
+  left: 1em;
+  position: absolute;
+}
+
+.global-header-component__a {
+  cursor: pointer;
+  color: $mockitup-segment-title-text-color;
+  float: left;
+  font-size: 0.7em;
+}

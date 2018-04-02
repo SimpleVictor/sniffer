@@ -1,0 +1,12 @@
+@import "variables.scss";
+
+.global-header-modal-header__div {
+  background-color: $mockitup-segment-title-background-color !important;
+  color: #FFF !important;
+  text-align: center !important;
+}
+
+.global-header-modal-content__div {
+  background-color: $mockitup-segment-content-background-color !important;
+  text-align: center !important;
+}

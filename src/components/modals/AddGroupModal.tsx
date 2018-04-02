@@ -16,7 +16,7 @@ const AddGroupModal = props => {
   }
   return(
     <div id={CSSConstant.addGroupModalDiv} className='ui mini modal'>
-      <div className='header add-group-modal-header__div'>What's the name of your group</div>
+        <div className='header add-group-modal-header__div'>What is the name of your group</div>
       <div className={`content ${CSSConstant.addGroupModalContentDiv}`}>
         <div className='ui action input'>
           <input className={CSSConstant.addGroupModalInput} type='text' placeholder='Canadian User...'/>

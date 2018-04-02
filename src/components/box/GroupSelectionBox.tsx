@@ -1,6 +1,7 @@
 import * as React from 'react'
 import RequestsDropDown from '../RequestsDropDown'
 import GroupSelectorAddSection from '../GroupSelectionAddSection'
+import GlobalHeadersComponent from "../GlobalHeadersComponent";
 import { CSSConstant } from '../../constant/cssNames';
 import {
   determineContentType,
@@ -105,6 +106,8 @@ const GroupSelectionBoxComponent = props => {
       </div>
       <div className='ui secondary segment box-content__div'>
         {renderGroupSelectorAddSection()}
+        <GlobalHeadersComponent
+            proxy={props.proxy}/>
         {renderDeleteGroupButton(props)}
         {renderRequestsDropDown(props)}
         {renderCurrentGroup(props)}
