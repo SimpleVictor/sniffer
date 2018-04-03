@@ -16,7 +16,7 @@ fi
 if test ! $(which mitmproxy)
 then
     echo "Installing mitmproxy..."
-    brew install mitmproxy
+    pip3 install mitmproxy~=2.0.2
 else
     echo "MitmProxy is already in your system"
 fi
