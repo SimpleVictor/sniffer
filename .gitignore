@@ -30,6 +30,7 @@ yarn-error.log*
 /mocks/**/*
 !/mocks/.gitkeep
 !/mocks/starterMock.js
+!/mocks/starterGlobalHeader.js
 !/mocks/images
 !/mocks/images/.gitkeep
 !/mocks/images/mock-sniffer-img.jpg
