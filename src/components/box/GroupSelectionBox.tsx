@@ -29,6 +29,13 @@ const GroupSelectionBoxComponent = props => {
       groupInView={props.groupInView}
       savedRequests={props.savedRequests}/>)
 
+  const renderGlobalHeadersLink = (props) => (
+    <GlobalHeadersComponent
+      proxy={props.proxy}
+      SetGlobalHeadersAction={props.SetGlobalHeadersAction}
+      globalHeaders={props.globalHeaders}/>)
+
+
   const groupUrlListClicked = (props, idx) => {
     if (props.proxy === 'off') {
       updateRequestInView(idx)
@@ -106,8 +113,7 @@ const GroupSelectionBoxComponent = props => {
       </div>
       <div className='ui secondary segment box-content__div'>
         {renderGroupSelectorAddSection()}
-        <GlobalHeadersComponent
-            proxy={props.proxy}/>
+        {renderGlobalHeadersLink(props)}
         {renderDeleteGroupButton(props)}
         {renderRequestsDropDown(props)}
         {renderCurrentGroup(props)}

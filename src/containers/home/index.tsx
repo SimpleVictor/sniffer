@@ -132,6 +132,8 @@ class Home extends Component {
   private renderGroupSelectionBoxComponent = props => (
     <GroupSelectionBoxComponent
       store={props}
+      SetGlobalHeadersAction={props.SetGlobalHeadersAction}
+      globalHeaders={props.globalHeaders}
       proxy={props.proxy}
       savedRequests={props.savedRequests}
       RequestInViewAction={props.RequestInViewAction}

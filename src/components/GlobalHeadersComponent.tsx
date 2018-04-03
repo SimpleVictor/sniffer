@@ -16,7 +16,11 @@ const GlobalHeadersComponent = props => {
         onClick={openGlobalHeaderModal}>
         Global Headers
       </a>
-      {GlobalHeaderModal(props)}
+
+      <GlobalHeaderModal
+        globalHeaders={props.globalHeaders}
+        SetGlobalHeadersAction={props.SetGlobalHeadersAction}/>
+
     </div>
   )
 }
