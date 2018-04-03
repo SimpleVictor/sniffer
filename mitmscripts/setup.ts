@@ -45,18 +45,6 @@ async function makeProxy(myMockedRequest: any, socket: any): Promise<any> {
         interceptedMsg.setStatusCode(200);
       }
 
-      // IMAGES
-      // if(req.rawUrl.indexOf('images/COAF/L1/bg_coaf_sml.jpg') >= 0) {
-      //   const file = fs.readFileSync('images/requests/evo.jpg');
-      //   interceptedMsg.setResponseBody(file);
-      // }
-      // if (req.rawUrl.indexOf('images/capital_one_logo.svg') >= 0) {
-      //   const file = fs.readFileSync('images/requests/evo.jpg');
-      //   interceptedMsg.setResponseBody(file);
-      //   interceptedMsg.addNewHeader('content-type', 'image/jpeg');
-      // }
-
-
       /* Mock out responses */
       myMockedRequest.data.forEach((elem: any) => {
         if (req.rawUrl.indexOf(elem.urlToMatch) >= 0) {

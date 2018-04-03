@@ -54,6 +54,8 @@ export const hideEditModal = () => $('.ui.modal.edit-modal').modal('hide')
 
 export const GetSavedRequests = () => getSocket().emit('GetSavedRequests')
 
+export const GetGlobalHeaders = () => getSocket().emit('GetGlobalHeaders')
+
 export const ChangeCodeMirrorClass = () => $('.CodeMirror')[0].className = 'CodeMirror cm-s-midnight'
 
 export const hideDeleteModal = () => $('.ui.modal.small.delete-modal').modal('hide')

@@ -3,5 +3,6 @@ export const SnifferProperties = {
   SocketProxyStatus: 'ProxyStatus',
   SocketReceivedStatus: 'ReceivedStatus',
   OnAddGroupUpdate: 'OnAddGroupUpdate',
-  onPrint: 'onPrint'
+  onPrint: 'onPrint',
+  SocketOnReceivedGlobalHeaders: 'OnReceivedGlobalHeaders'
 }

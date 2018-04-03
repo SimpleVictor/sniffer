@@ -38,22 +38,29 @@ import {
   counterObj,
   GetDOMElement,
   GetSavedRequests,
-  wasRequestIntercepted
+  wasRequestIntercepted,
+  GetGlobalHeaders
 } from '../../utils/common'
 
 class Home extends Component {
   constructor(public props: any) {
     super(props)
     GetSavedRequests()
+    GetGlobalHeaders()
     const socket = getSocket();
     socket.on(SnifferProperties.SocketOnReceivedSavedRequests, this.onReceivedSavedRequests.bind(this));
     socket.on(SnifferProperties.SocketProxyStatus, this.onProxyStatus.bind(this));
     socket.on(SnifferProperties.SocketReceivedStatus, this.onReceivedRequest.bind(this));
     socket.on(SnifferProperties.OnAddGroupUpdate, this.onAddGroupUpdate.bind(this));
+    socket.on(SnifferProperties.SocketOnReceivedGlobalHeaders, this.onReceivedGlobalHeaders.bind(this))
     socket.on(SnifferProperties.onPrint, this.onPrint.bind(this))
   }
 
   private onPrint = data => console.log(data)
+
+  private onReceivedGlobalHeaders = data => {
+    console.log(data);
+  }
 
   private onAddGroupUpdate = data => {
     this.props.ReceivedSavedRequestAction(data)

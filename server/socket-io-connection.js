@@ -5,8 +5,10 @@ const kill = require('kill-port');
 const openBrowser = require('op-browser');
 const portToKill = [5050];
 const snifferStarterMock = require('../mocks/starterMock');
+const starterGlobalHeader = require('../mocks/starterGlobalHeader');
 
 const mocksFileLocation = 'mocks/mocks.json';
+const globalHeadersFileLocation = 'mocks/globalHeaders.json';
 const singleMockFileLocation = 'mocks/singleMock.json';
 
 const jsonConfig = {type: 'space', size: 2};
@@ -38,6 +40,20 @@ const connect = (io) => {
       }
       console.log(`${connectedApplication.platform} has disconnected...`)
     });
+
+    socket.on('GetGlobalHeaders', () => {
+      fs.readFile(globalHeadersFileLocation, (err, data) => {
+        if(err) { /* File doesn't exist.. */
+          const starterPack = starterGlobalHeader;
+          fs.writeFile(globalHeadersFileLocation, JSON.stringify(starterPack), (err) => {
+            if (err) throw err;
+            socket.emit('OnReceivedGlobalHeaders', starterPack);
+          });
+        }else {
+          socket.emit('OnReceivedGlobalHeaders', JSON.parse(data));
+        }
+      });
+    })
 
     socket.on('GetSavedRequests', () => {
       fs.readFile(mocksFileLocation, (err, data) => {
