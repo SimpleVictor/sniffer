@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 #globalHeaderModal {
-  margin-top: -20rem !important;
+  margin-top: -30rem !important;
 }
 
 .global-header-modal-header__div {
@@ -28,4 +28,18 @@
   border: 0 !important;
   border-bottom: 1px solid grey !important;
   width: 80% !important;
+}
+
+.global-header-modal-trash__icon {
+  top: 0.5rem !important;
+  position: relative !important;;
+  cursor: pointer;
+  color: $mockitup-red-color !important;
+  &:hover {
+    color: $mockitup-blue-color !important;
+  }
+}
+
+.global-header-modal-custom-height {
+  height: 3rem !important;
 }

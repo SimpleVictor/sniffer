@@ -55,6 +55,13 @@ const connect = (io) => {
       });
     })
 
+    socket.on('SetGlobalHeaders', (data) => {
+      fs.writeFile(globalHeadersFileLocation, jsonFormat(JSON.parse(data), jsonConfig), (err) => {
+        if (err) throw err;
+        socket.emit('OnReceivedGlobalHeaders', JSON.parse(data));
+      });
+    })
+
     socket.on('GetSavedRequests', () => {
       fs.readFile(mocksFileLocation, (err, data) => {
         if(err) { /* File doesn't exist.. */
@@ -99,12 +106,13 @@ const connect = (io) => {
     socket.on('TurnOnProxy', (data) => {
       fs.writeFile(singleMockFileLocation, jsonFormat(data, jsonConfig), (err) => {
         if (err) throw err;
-
-        Setup.MockWebSocket(data, socket, (ws) => {
-          openBrowser.open('chrome', 'http://sniff.com', 'http://127.0.0.1:5065', '');
-          webSocket = ws;
-          socket.emit('ProxyStatus');
-        });
+        fs.readFile(globalHeadersFileLocation, (headerErr, globalHeader) => {
+          Setup.MockWebSocket(data, JSON.parse(globalHeader), socket, (ws) => {
+            openBrowser.open('chrome', 'http://sniff.com', 'http://127.0.0.1:5065', '');
+            webSocket = ws;
+            socket.emit('ProxyStatus');
+          });
+        })
       });
     });
 

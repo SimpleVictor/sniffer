@@ -1,1 +1,1 @@
-export declare function MockWebSocket(myMockedRequest: any, socket: any, callback: any): Promise<any>;
+export declare function MockWebSocket(myMockedRequest: any, globalHeader: any, socket: any, callback: any): Promise<any>;

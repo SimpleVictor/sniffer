@@ -4,7 +4,7 @@ const awaitingClosingPromise = new Promise((resolve) => promiseToBeCalledWhenClo
 let promiseToBeCalledWhenClosing: any;
 
 
-async function makeProxy(myMockedRequest: any, socket: any): Promise<any> {
+async function makeProxy(myMockedRequest: any, globalHeaders: any, socket: any): Promise<any> {
   const urlToMatch = UrlToMatchArray(myMockedRequest);
   return await Proxy.MITMProxy.Create((interceptedMsg: any) => {
     const req: any = interceptedMsg.request;
@@ -13,14 +13,11 @@ async function makeProxy(myMockedRequest: any, socket: any): Promise<any> {
     const payload: any = interceptedMsg.requestBody.toString('utf8');
     const dumbResponse: any = dumbDownResponse(req, res, urlToMatch, body, payload);
     socket.emit('ReceivedStatus', dumbResponse);
-    //
-    // if(req.rawUrl.indexOf('ease-app-web/customer/language')) {
-    //   interceptedMsg.addNewHeader('accept-language', 'es-US,en;q=0.9' );
-    // }
-    //
-    // if (req.rawUrl.indexOf('ease-app-web/customer/steps')) {
-    //   interceptedMsg.addNewHeader('accept', 'application/json' );
-    // }
+
+    /* Global Headers Setter */
+    globalHeaders.forEach((globalHeader) => {
+      interceptedMsg.addNewHeader(globalHeader.headerKey, globalHeader.headerValue );
+    })
 
     /* TODO this 'closerequest' isn't really necessary anymore */
     if (req.rawUrl.indexOf("closerequest") >= 0) {
@@ -39,7 +36,6 @@ async function makeProxy(myMockedRequest: any, socket: any): Promise<any> {
       }
 
       /* Replace Sniffer.com with my own Sniffer Page */
-      console.log(req.rawUrl);
       if(req.rawUrl.indexOf('sniff.com') >= 0) {
         interceptedMsg.setResponseBody(new Buffer(getTemplate().landingPage));
         interceptedMsg.setStatusCode(200);
@@ -76,8 +72,8 @@ async function makeProxy(myMockedRequest: any, socket: any): Promise<any> {
   });
 }
 
-export async function MockWebSocket(myMockedRequest: any, socket: any, callback: any): Promise<any>  {
-  const webProxy = await makeProxy(myMockedRequest, socket);
+export async function MockWebSocket(myMockedRequest: any, globalHeader: any, socket: any, callback: any): Promise<any>  {
+  const webProxy = await makeProxy(myMockedRequest, globalHeader, socket);
   callback(webProxy);
   awaitingClosingPromise.then(() => {
     console.log("Closing request now...");
