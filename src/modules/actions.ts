@@ -44,6 +44,9 @@ export const RecordedRequestsAction = payload => ({type: RecordedRequests, paylo
 export const EmptyRecordedRequests = 'EmptyRecordedRequests'
 export const EmptyRecordedRequestsAction = () => ({type: EmptyRecordedRequests})
 
+export const SetGlobalHeaders = 'SetGlobalHeaders'
+export const SetGlobalHeadersAction = payload => ({type: SetGlobalHeaders, payload})
+
 export const ResponseFilters = 'ResponseFilters'
 export const ResponseFiltersAction = payload => ({type: ResponseFilters, payload})
 

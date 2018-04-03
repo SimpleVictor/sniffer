@@ -32,7 +32,7 @@ import {
   ToggleProxyAction,
   ToggleSpinnerAction,
   UniversalErrorMessageModalAction,
-  UpdatedSavedRequestAction
+  UpdatedSavedRequestAction, SetGlobalHeadersAction
 } from '../../modules/actions'
 import {
   counterObj,
@@ -59,7 +59,7 @@ class Home extends Component {
   private onPrint = data => console.log(data)
 
   private onReceivedGlobalHeaders = data => {
-    console.log(data);
+    this.props.SetGlobalHeadersAction(data);
   }
 
   private onAddGroupUpdate = data => {
@@ -191,10 +191,12 @@ const mapStateToProps = state => ({
   universalErrorMessage: state.universalErrorMessageModal,
   connection: state.connection,
   router: state.router,
-  filterResponseInputValue: state.filterResponseInputValue
+  filterResponseInputValue: state.filterResponseInputValue,
+  globalHeaders: state.globalHeaders
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  SetGlobalHeadersAction,
   EmptyRecordedRequestsAction,
   SocketDisconnectAction,
   SocketConnectAction,

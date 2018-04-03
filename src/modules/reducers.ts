@@ -16,7 +16,7 @@ import {
   ToggleProxy,
   ToggleSpinner,
   UniversalErrorMessageModal,
-  Updated_Saved_Request
+  Updated_Saved_Request, SetGlobalHeaders
 } from './actions'
 
 /* Tells us the current connection with our sockets */
@@ -115,6 +115,14 @@ export const ToggleEditModalReducer = (state = false, action) => {
 export const ResponseFilterReducer = (state = 'all', action) => {
   switch (action.type) {
     case ResponseFilters:
+      return action.payload
+    default:
+      return state
+  }}
+
+export const SetGlobalHeadersReducer = (state = [], action) => {
+  switch (action.type) {
+    case SetGlobalHeaders:
       return action.payload
     default:
       return state

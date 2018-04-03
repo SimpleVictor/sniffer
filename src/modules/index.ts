@@ -14,10 +14,12 @@ import {
   ToggleEditModalReducer,
   ToggleProxyReducer,
   ToggleSpinnerReducer,
-  UniversalErrorMessageModalReducer
+  UniversalErrorMessageModalReducer,
+  SetGlobalHeadersReducer
 } from './reducers';
 
 export default combineReducers({
+  globalHeaders: SetGlobalHeadersReducer,
   editModal: ToggleEditModalReducer,
   savedRequests: SavedRequestsReducer,
   currentRequest: CurrentRequestReducer,
