@@ -1,12 +1,31 @@
 @import "variables.scss";
 
+#globalHeaderModal {
+  margin-top: -20rem !important;
+}
+
 .global-header-modal-header__div {
+  padding: 1rem !important;
   background-color: $mockitup-segment-title-background-color !important;
   color: #FFF !important;
   text-align: center !important;
 }
 
 .global-header-modal-content__div {
+  padding: 1rem !important;
   background-color: $mockitup-segment-content-background-color !important;
   text-align: center !important;
+}
+
+.global-header-modal__input {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid grey !important;
+}
+
+.global-header-modal-pre-existing__input {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid grey !important;
+  width: 80% !important;
 }
