@@ -1,14 +1,126 @@
 @import "variables.scss";
 
+
+//NEW ONE
+.global-header-modal-container {
+  width: 100% !important;
+  display: flex !important;
+}
+
+.global-header-modal-flex-section {
+  flex: 1;
+  height: 450px;
+  &--right {
+    border-right: 1px solid $mockitup-segment-hr-color;
+  }
+}
+
+.global-header__hr {
+  border-color: $mockitup-segment-hr-color;
+  margin-bottom: 2rem;
+}
+
+.global-header-save-button {
+  background-color: $purple !important;
+  color: #FFF !important;
+  font-size: 1.3rem !important;
+  position: relative !important;
+  height: 100% !important;
+  letter-spacing: 7px !important;
+}
+
+.global-header-save__container {
+  margin-bottom: 1rem;
+}
+
+.global-header-add-arrow__container {
+  left: 50%;
+  position: absolute;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.global-header-add-arrow__icon {
+  cursor: pointer;
+  color: $purple !important;
+  &:hover {
+    color: $mockitup-blue-color !important;
+  }
+}
+
+.global-header-spacer__section {
+  margin: 3rem 0;
+}
+
+.global-header-modal__label {
+  font-size: 2rem;
+  color: #7F8697;
+}
+
+.global-header-list-container {
+  display: flex;
+}
+
+.global-header-list-section {
+  flex: 1;
+  &--right {
+   border-right: 1px solid $mockitup-segment-hr-color;
+  }
+}
+
+.global-header-modal__input {
+  text-align: center;
+  width: 80% !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid grey !important;
+}
+
+.global-header-modal__input[type="text"] {
+  font-size: 20px;
+  color: $white;
+}
+
+.global-header__p {
+  opacity: 0.6;
+  color: $mockitup-light-grey;
+}
+
+.global-header-modal-meh__icon {
+  opacity: 0.5;
+  color: $purple !important;
+}
+
+.global-header-left-title {
+  margin-bottom: 5rem;
+  font-size: 2.5rem;
+  opacity: 0.1;
+  letter-spacing: 5px;
+}
+
+.global-header-right-title {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  opacity: 0.1;
+  letter-spacing: 5px;
+}
+
+//OLD ONE
 #globalHeaderModal {
-  margin-top: -30rem !important;
+  top: 15rem !important;
+  left: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 5rem !important;
+  background: transparent !important;
 }
 
 .global-header-modal-header__div {
   padding: 1rem !important;
   background-color: $mockitup-segment-title-background-color !important;
-  color: #FFF !important;
+  color: $purple !important;
   text-align: center !important;
+  font-size: 2.5rem !important;
 }
 
 .global-header-modal-content__div {
@@ -17,13 +129,8 @@
   text-align: center !important;
 }
 
-.global-header-modal__input {
-  background: transparent !important;
-  border: 0 !important;
-  border-bottom: 1px solid grey !important;
-}
-
 .global-header-modal-pre-existing__input {
+  text-align: center;
   background: transparent !important;
   border: 0 !important;
   border-bottom: 1px solid grey !important;
