@@ -1,8 +1,10 @@
 export const CSSConstant = {
 
   addGroupModalDiv: 'add-group-modal__div',
-  addGroupModalInput: 'add-group-modal__input',
   addGroupModalContentDiv: 'add-group-modal-content__div',
+
+  addGroupModalInput: 'addNewGroupName',
+  addDescriptionModalInput: 'addDescriptionModalInput',
 
   globalHeaderModalID: 'globalHeaderModal',
 

@@ -47,7 +47,7 @@ const GroupSelectionBoxComponent = props => {
   }
 
   const renderNoSavedRequestTag = () =>
-    (<h3 className='group-selection-no-data__h3'>You have no requests saved in thiss group</h3>)
+    (<h3 className='group-selection-no-data__h3'>there's nothing saved...</h3>)
 
   const NoDataMessage = group =>
     (group && !group.data.length) ? renderNoSavedRequestTag() : ''

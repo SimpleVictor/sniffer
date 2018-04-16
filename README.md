@@ -1,9 +1,7 @@
 # Sniffer - Record, Replay, Manipulate Requests/Responses
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
-
 ## Prerequisites
-1. Go inside of the main directory in you terminal
+1. Go inside of the main directory in your terminal
 2. `sh ./setup.sh` (Checks to see if you have not already installed brew, python(Version 3), mitmproxy, and websocket)
 3. `yarn`
 

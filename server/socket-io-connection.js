@@ -18,7 +18,7 @@ let webSocket = false;
 const connect = (io) => {
   io.on("connection", async ( socket ) => {
     if(webSocket) {
-      await webSocket.shutDownWebSocket();
+      await webSocket.shutdown();
       webSocket = false;
     }
     const connectedApplication = {platform: '', id: socket.id};
@@ -118,7 +118,7 @@ const connect = (io) => {
 
     socket.on('TurnOffProxy', async () => {
       try {
-        await webSocket.shutDownWebSocket();
+        await webSocket.shutdown();
         webSocket = false;
         socket.emit('ProxyStatus');
       }catch(err) {

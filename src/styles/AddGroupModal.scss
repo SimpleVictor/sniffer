@@ -1,5 +1,86 @@
 @import "variables.scss";
 
+#add-group-modal__div {
+  margin: 0 !important;
+}
+
+.add-group-modal-section__div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.add-group-modal-group-name__input {
+  text-align: center;
+  width: 80% !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid grey !important;
+}
+
+.add-group-modal-section-header__div {
+  border-radius: 5px 5px 0 0;
+  letter-spacing: 4px;
+  padding: 1rem;
+  background-color: $mockitup-segment-title-background-color;
+  color: $mockitup-blue-color;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.add-group-modal-section-content__div {
+  border-radius: 0 0 5px 5px;
+  padding: 1rem;
+  background-color: $mockitup-segment-content-background-color;
+  text-align: center;
+}
+
+.add-group-modal-header_h1 {
+  text-align: center;
+  letter-spacing: 5px;
+  color: $white;
+  margin-bottom: 4rem;
+}
+
+.add-group-modal-close-container__div {
+  position: relative;
+  text-align: right;
+}
+
+.add-group-modal-close-container__span {
+  position: relative;
+  right: 3rem;
+  top: 2rem;
+}
+
+.add-group-modal-close-container__span:hover {
+  color: $mockitup-blue-color;
+}
+
+.add-group-modal-close__button {
+  cursor: pointer;
+}
+
+.editor-close__button:hover {
+  color: $mockitup-blue-color;
+}
+
+.add-group-modal-container__div {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  height: 100% !important;
+}
+
+.add-group-modal__container {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  margin: 0 3rem;
+}
+
 .add-group-modal-header__div {
   background-color: $mockitup-segment-title-background-color !important;
   color: #FFF !important;

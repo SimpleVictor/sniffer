@@ -96,6 +96,14 @@
   padding-bottom: 2em;
 }
 
+.edit-modal-massive-input__label {
+  opacity: 0.3;
+  letter-spacing: 3px;
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: $mockitup-segment-title-text-color;
+}
+
 
 .edit-modal-input-field__input:focus {
   border-top: transparent !important;

@@ -78,7 +78,6 @@ class JsonEditorModal extends Component {
       id='jsonEditorModalUrlInput'
       className='edit-modal-input-field__input json-editor-modal-url__input'
       type='text'
-      placeholder='Url'
       onChange={event  => this.setCurrentResponseUrl(event.target.value)}/>)
 
   private renderStatusInput = () => (
@@ -86,7 +85,6 @@ class JsonEditorModal extends Component {
       id='jsonEditorModalStatusInput'
       className='edit-modal-input-field__input edit-modal-input-field__input--status'
       type='text'
-      placeholder='Status Code...'
       onChange={event  => this.setCurrentResponseStatusCode(event.target.value)}/>)
 
   private renderSaveButton = () => (
@@ -219,11 +217,13 @@ class JsonEditorModal extends Component {
         {/*STATUS CODE INPUT FIELD*/}
         <div className='ui massive input edit-modal-massive-input__div edit-modal-massive-input__div--status'>
           {this.renderStatusInput()}
+          <label className="edit-modal-massive-input__label">Status Code</label>
         </div>
 
         {/*URL TO MATCH INPUT FIELD*/}
         <div className='ui massive input edit-modal-massive-input__div'>
           {this.renderUrlInput()}
+          <label className="edit-modal-massive-input__label">Url</label>
         </div>
 
         <hr className='json-editor-modal__hr'/>

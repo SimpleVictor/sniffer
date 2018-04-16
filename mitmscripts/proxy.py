@@ -13,9 +13,6 @@ import struct
 import websockets
 from mitmproxy import http
 
-print(websockets.__file__);
-print(sys.executable)
-
 def convert_headers_to_bytes(header_entry):
     """
     Converts a tuple of strings into a tuple of bytes.
@@ -156,8 +153,11 @@ class WebSocketAdapter:
             except websockets.exceptions.ConnectionClosed:
                 # disconnected from server
                 pass
-            except OSError:
+            except BrokenPipeError:
                 # Connect failed
+                pass
+            except IOError:
+                # disconnected from server mis-transfer
                 pass
             except:
                 print("[mitmproxy-node plugin] Unexpected error:", sys.exc_info())

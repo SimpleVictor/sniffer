@@ -1,12 +1,9 @@
 import * as Proxy from './websocket';
 const fs = require('fs');
-const awaitingClosingPromise = new Promise((resolve) => promiseToBeCalledWhenClosing = resolve);
-let promiseToBeCalledWhenClosing: any;
-
 
 async function makeProxy(myMockedRequest: any, globalHeaders: any, socket: any): Promise<any> {
   const urlToMatch = UrlToMatchArray(myMockedRequest);
-  return await Proxy.MITMProxy.Create((interceptedMsg: any) => {
+  return Proxy.MITMProxy.Create((interceptedMsg: any) => {
     const req: any = interceptedMsg.request;
     const res: any = interceptedMsg.response;
     const body: any = interceptedMsg.responseBody.toString('utf8');
@@ -19,66 +16,64 @@ async function makeProxy(myMockedRequest: any, globalHeaders: any, socket: any):
       interceptedMsg.addNewHeader(globalHeader.headerKey, globalHeader.headerValue );
     })
 
-    /* TODO this 'closerequest' isn't really necessary anymore */
-    if (req.rawUrl.indexOf("closerequest") >= 0) {
-      promiseToBeCalledWhenClosing();
-    } else {
-      // interceptedMsg.addNewHeader('somethingrandom', 'wadddupp' );
-      /* Place DOG logo on every html Page */
-      if(dumbResponse.contentType && dumbResponse.contentType.indexOf('text/html') !== -1 && dumbResponse.body.indexOf('</body>') !== -1) {
-        const splitter = dumbResponse.body.split('</body>')
-        const head = splitter[0]
-        const dogSVG = getDogSvg();
-        const secondToTail = "</body>"
-        const tail =  splitter[1]
-        dumbResponse.body = `${head}${dogSVG}${secondToTail}${tail}`;
-        interceptedMsg.setResponseBody(new Buffer(dumbResponse.body));
-      }
+    // interceptedMsg.addNewHeader('somethingrandom', 'wadddupp' );
+    /* Place DOG logo on every html Page */
+    if(dumbResponse.contentType && dumbResponse.contentType.indexOf('text/html') !== -1 && dumbResponse.body.indexOf('</body>') !== -1) {
+      const splitter = dumbResponse.body.split('</body>')
+      const head = splitter[0]
+      const dogSVG = getDogSvg();
+      const secondToTail = "</body>"
+      const tail =  splitter[1]
+      dumbResponse.body = `${head}${dogSVG}${secondToTail}${tail}`;
+      interceptedMsg.setResponseBody(new Buffer(dumbResponse.body));
+    }
 
-      /* Replace Sniffer.com with my own Sniffer Page */
-      if(req.rawUrl.indexOf('sniff.com') >= 0) {
-        interceptedMsg.setResponseBody(new Buffer(getTemplate().landingPage));
-        interceptedMsg.setStatusCode(200);
-      }
+    /* Replace Sniffer.com with my own Sniffer Page */
+    if(req.rawUrl.indexOf('sniff.com') >= 0) {
+      const oldBody = getTemplate().landingPage;
+      const splitter = oldBody.split('</body>')
+      const head = splitter[0]
+      const dogSVG = getDogSvg();
+      const secondToTail = "</body>"
+      const tail =  splitter[1]
+      const newBody = `${head}${dogSVG}${secondToTail}${tail}`;
+      interceptedMsg.setResponseBody(new Buffer(newBody));
+      interceptedMsg.setStatusCode(200);
+    }
 
-      /* Mock out responses */
-      myMockedRequest.data.forEach((elem: any) => {
-        if (req.rawUrl.indexOf(elem.urlToMatch) >= 0) {
+    /* Mock out responses */
+    myMockedRequest.data.forEach((elem: any) => {
+      if (req.rawUrl.indexOf(elem.urlToMatch) >= 0) {
 
-          // Set HEADERS
-          elem.headers.forEach((header) => interceptedMsg.addNewHeader(header.key, header.value ));
-          // Change Response based on IMAGE, JSON (Currently Supported)
-          if (isImage(elem['content-type'])) {
-            // IMAGE
-            /* Check if response is an empty string or an ID */
-            if (elem.response && elem.response.fileName) {
-              const fileName = elem.response.fileName;
-              const file = fs.readFileSync(`mocks/images/${fileName}`);
-              interceptedMsg.setResponseBody(file);
-              interceptedMsg.addNewHeader('content-type', 'image/jpeg');
-            }
-          } else {
-            // JSON
-            interceptedMsg.setResponseBody(new Buffer(JSON.stringify(elem.response)));
+        // Set HEADERS
+        elem.headers.forEach((header) => interceptedMsg.addNewHeader(header.key, header.value ));
+        // Change Response based on IMAGE, JSON (Currently Supported)
+        if (isImage(elem['content-type'])) {
+          // IMAGE
+          /* Check if response is an empty string or an ID */
+          if (elem.response && elem.response.fileName) {
+            const fileName = elem.response.fileName;
+            const file = fs.readFileSync(`mocks/images/${fileName}`);
+            interceptedMsg.setResponseBody(file);
+            interceptedMsg.addNewHeader('content-type', 'image/jpeg');
           }
-
-          // Set Status Code
-          interceptedMsg.setStatusCode(elem.status);
-
+        } else {
+          // JSON
+          interceptedMsg.setResponseBody(new Buffer(JSON.stringify(elem.response)));
         }
 
-      });
-    }
+        // Set Status Code
+        interceptedMsg.setStatusCode(elem.status);
+
+      }
+
+    });
   });
 }
 
 export async function MockWebSocket(myMockedRequest: any, globalHeader: any, socket: any, callback: any): Promise<any>  {
   const webProxy = await makeProxy(myMockedRequest, globalHeader, socket);
   callback(webProxy);
-  awaitingClosingPromise.then(() => {
-    console.log("Closing request now...");
-    webProxy.shutdown();
-  });
 }
 
 function isImage(contentType) {
