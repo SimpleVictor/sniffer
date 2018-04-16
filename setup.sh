@@ -12,6 +12,13 @@ else
     echo "Brew is already in your system"
 fi
 
+if test ! $(which pip3)
+then
+    echo "Installing python version 3..."
+    brew install python3
+else
+    echo "Python3/pip3 is already in your system"
+fi
 
 if test ! $(which mitmproxy)
 then
@@ -19,14 +26,6 @@ then
     pip3 install mitmproxy~=2.0.2
 else
     echo "MitmProxy is already in your system"
-fi
-
-if test ! $(which pip3)
-then
-    echo "Installing python version 3..."
-    brew install python3
-else
-    echo "Python3/pip3 is already in your system"
 fi
 
 if [ -d "$websocketDir" ]
