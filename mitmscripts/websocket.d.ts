@@ -71,7 +71,7 @@ export declare class MITMProxy {
     private _wss;
     private _stash;
     static Create(cb?: Interceptor): Promise<MITMProxy>;
-    private static _cleanup();
+    private static _cleanup;
     constructor(cb: Interceptor);
     stashEnabled: boolean;
     getFromStash(url: string): StashedItem;
@@ -79,6 +79,6 @@ export declare class MITMProxy {
     proxyGet(urlString: string): Promise<HTTPResponse>;
     shutdown(): Promise<void>;
     shutDownWebSocket(): Promise<void>;
-    private _initializeWSS(wss);
-    private _initializeMITMProxy(mitmProxy);
+    private _initializeWSS;
+    private _initializeMITMProxy;
 }

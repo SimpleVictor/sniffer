@@ -70,6 +70,7 @@ class Home extends Component {
     this.props.RequestInViewAction(null)} /* Reset Request in View to null */
 
   private onReceivedRequest = request => {
+    console.log(request);
     this.props.RecordedRequestsAction(request)
     counterObj.requestCounter += 1
     GetDOMElement('request-counter').innerText = counterObj.requestCounter + ''

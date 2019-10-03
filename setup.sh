@@ -33,8 +33,8 @@ then
     echo "You already have websockets installed"
 else
     echo "Adding websockets in your python collections..."
-    mkdir /usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/lib/python3.6/websockets
-    cp -r ./lib/websockets /usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/lib/python3.6/
+    mkdir /usr/local/opt/python3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/websockets
+    cp -r ./lib/websockets /usr/local/opt/python3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/
     echo "Websocket was added successfully"
 fi
 

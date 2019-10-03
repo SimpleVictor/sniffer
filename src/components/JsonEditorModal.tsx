@@ -67,7 +67,7 @@ class JsonEditorModal extends Component {
     <ReactJson
       src={response}
       name={false}
-      indentWidth='2'
+      indentWidth={2}
       theme='monokai'
       onAdd={val => this.onAdd(val)}
       onEdit={val => this.onEdit(val)}

@@ -12,13 +12,13 @@ const middleware = [
   routerMiddleware(history)
 ];
 
-if (process.env.NODE_ENV === 'development') {
-  const devToolsExtension = (<any> window).devToolsExtension;
-
-  if (typeof devToolsExtension === 'function') {
-    enhancers.push(devToolsExtension());
-  }
-}
+// if (process.env.NODE_ENV === 'development') {
+//   const devToolsExtension = (<any> window).devToolsExtension;
+//
+//   if (typeof devToolsExtension === 'function') {
+//     enhancers.push(devToolsExtension());
+//   }
+// }
 
 const composedEnhancers = compose(
   applyMiddleware(...middleware),
