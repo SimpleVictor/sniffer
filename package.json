@@ -29,7 +29,7 @@
     "fs-extra": "^5.0.0",
     "gsap": "^1.20.3",
     "history": "^4.7.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "json-format": "^1.0.1",
     "kill-port": "^1.1.0",
     "morgan": "~1.8.1",
