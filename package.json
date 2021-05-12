@@ -20,7 +20,7 @@
     "@trodi/electron-splashscreen": "^0.3.0",
     "body-parser": "~1.17.1",
     "clone-deep": "^3.0.1",
-    "codemirror": "^5.34.0",
+    "codemirror": "^5.58.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.3",
